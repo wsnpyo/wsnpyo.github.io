@@ -118,7 +118,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/05/06/NP-introduction/">
+              <a class="post-title-link" href="/2015/05/07/NP-introduction/">
                 NP_introduction
               </a>
             
@@ -148,8 +148,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/05/06/NP-introduction/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/06/NP-introduction/"></span>
+            <a href="/2015/05/07/NP-introduction/#comments" >
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/07/NP-introduction/"></span>
             </a>
           </span>
           
@@ -164,7 +164,37 @@
 
       
         
-          <p>此文自阅读《<em>Intoduction to Algorithm</em>》所思所获。</p>
+          <p>此文自阅读《<em>Intoduction to Algorithm</em>》总结 or 所思所获。</p>
+<h4 id="引言">引言</h4><p>NP问题大家应该有所耳闻，都说是非多项式时间内可以解决的问题。在这里，笔者仅以多次翻阅《算法导论》的理解来用尽量通俗的语言来描述这一美妙至极的问题。</p>
+<h4 id="为甚么要研究NP问题?">为甚么要研究NP问题?</h4><p>研究NP问题从算法复杂度方面给了我们对于<em>计算机所能解决的问题</em>直观的认识。一般来说，计算机能解决的复杂的实际问题也是我们对于量级的问题的极限了。<br>故如果能够窥探一隅，也是收益颇丰的。<br>实际的角度来说，对于一个问题，作为一介平凡百姓的角度来说，如果被证明是<em>NPC</em>问题(暂且把它当作人类还没有方法解决的问题)，那便至少不必大费宝贵的时间于其中。<br>哲学的角度来说，其中的美妙之处更是难以言尽…人类的极限是什么呢？</p>
+<h4 id="什么是P/NP问题?">什么是P/NP问题?</h4><p>首先要引入对于两类问题的归类:</p>
+<blockquote>
+<ul>
+<li>判定问题（<em>decision problem</em>）: 问题的解答仅为是与否的一类问题</li>
+<li>最优化问题（<em>optimization problem</em>）: 求解问题最优解的一类问题</li>
+</ul>
+</blockquote>
+<p>接下来我们将主体说明这几类问题，称为P问题，NP问题与NPC问题。</p>
+<p>准确的说，</p>
+<blockquote>
+<ul>
+<li>P问题：在多项式时间内可以求解的判定问题</li>
+<li>NP问题：在多项式时间内可以判断（验证）一个解是否成立的判定问题</li>
+<li>NPC问题：NP类问题中最为难解的问题</li>
+</ul>
+</blockquote>
+<p>这里需要说明的几点：</p>
+<ul>
+<li>最优化问题往往是有趣的问题，而一般来说，判定问题是最优化问题的基础，为什么这么说？因为如果解决了最优化问题，判定问题自然能够轻松解决。（这里说的仅是判定最优解的一类问题，而不是要求求出比如求解路径一类的问题）</li>
+<li>NPC问题与NP问题与区分：NP问题并不是都是难解问题，至少显然$P \subseteq NP, 因为显然多项式内能够求解的问题，自然能够判断。更为本质的区别，之后会提及。 </li>
+<li>关于NP-hard问题：应该说是比NPC问题更难的问题，未必在多项式时间内可以验证一个解的问题，故$NP-hard \not \subseteq NP$</li>
+</ul>
+<h4 id="如何研究NP问题">如何研究NP问题</h4><p>《算法导论》上利用<strong>归约</strong>方法来判定一个问题是否属于NPC问题。</p>
+<p><strong>归约</strong>：问题A的任意实例问题能够在多项式时间内转换为问题B的某个实例。并且两者是“等价”，即问题B的对应实例的解可以转化为问题A的对应实例的解。</p>
+<h4 id="多项式时间的严格定义">多项式时间的严格定义</h4><p>这一块是我读不懂的一块，主要涉及到形式语言和自动机原理，还有编码问题，其实我想的话也有所道理。</p>
+<p>计算机能够表达的语言是建立编码之上的，而你描述的算法的运行是在计算机基础之上的，如何才能够确切的表示多项式时间需要对这一块有严格的说明。</p>
+<hr>
+<p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">署名-非商业性使用-禁止演绎 | Creative Commons BY-NC-ND 3.0</a><br>博客链接：<a href="http://wsnpyo.github.io/" target="_blank" rel="external">http://wsnpyo.github.io/</a></p>
 
         
       
@@ -405,6 +435,9 @@
 <p><em>History became legend, and legend became myth.</em></p>
 <center><img src="/images/theHobbitPost.jpg" alt="the Hobbit"></center><br><center><strong>the Hobbit</strong></center>
 
+
+<hr>
+<p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">署名-非商业性使用-禁止演绎 | Creative Commons BY-NC-ND 3.0</a><br>博客链接：<a href="http://wsnpyo.github.io/" target="_blank" rel="external">http://wsnpyo.github.io/</a></p>
 
         
       
