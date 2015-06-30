@@ -29,13 +29,11 @@
 
 
 
-  <title> My Prejudice </title>
+  <title> undefined // My Prejudice </title>
 </head>
 
 <body>
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <div id="header" class="header">
@@ -105,9 +103,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
+
   <div id="posts" class="posts-expand">
     
-      
 
   <div class="post post-type-normal ">
     <div class="post-header">
@@ -118,9 +116,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/06/30/Thought-2015/">
-                undefined
-              </a>
+              undefined
             
           
         </h1>
@@ -152,8 +148,7 @@
       
 
       
-        
-          <hr>
+        <hr>
 <p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">署名-非商业性使用-禁止演绎 | Creative Commons BY-NC-ND 3.0</a><br>文章链接：<a href="http://wsnpyo.github.io/" target="_blank" rel="external">http://wsnpyo.github.io/</a><br>&lt;!DOCTYPE html&gt;<html><head><meta charset="utf-8"><meta name="category" content="日记随笔"></head></html></p>
 <p><meta name="tags" content=""><style>body {<br>  width: 45em;<br>  border: 1px solid #ddd;<br>  outline: 1300px solid #fff;<br>  margin: 16px auto;<br>}</p>
 <p>body .markdown-body<br>{<br>  padding: 30px;<br>}</p>
@@ -360,7 +355,6 @@
 <p><hr></p>
 <p></p><p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">署名-非商业性使用-禁止演绎 | Creative Commons BY-NC-ND 3.0</a><br><br>文章链接：<a href="http://wsnpyo.github.io/" target="_blank" rel="external"><a href="http://wsnpyo.github.io/" target="_blank" rel="external"><a href="http://wsnpyo.github.io/" target="_blank" rel="external">http://wsnpyo.github.io/</a></a></a></p><p></p>
 
-        
       
     </div>
 
@@ -368,460 +362,37 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-              <a class="post-title-link" href="/2015/05/13/greedy/">
-                贪心思想 ——別人恐懼我貪婪
-              </a>
+          </div>
+
+          <div class="post-nav-next post-nav-item">
             
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-13
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
+              <a href="/2015/05/13/greedy/">贪心思想 ——別人恐懼我貪婪</a>
             
-              <a href="/categories/算法/">算法</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/13/greedy/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/13/greedy/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>本文证明严格不超过三句话。</p>
-<h4 id="区间问题贪心">区间问题贪心</h4><p>此类问题的证明思路，一般是证明该方法至少不会比最优方案更差即可。证明较为简单。</p>
-<h5 id="最大区间调度问题">最大区间调度问题</h5><p>定义： 数轴上有n个区间，选择最多的区间使之互不重叠  </p>
-<blockquote>
-<p>算法： 按右端点排序，依次选取能选择的最小右端点的区间  </p>
-</blockquote>
-<h5 id="多个资源调度问题">多个资源调度问题</h5><p>定义： 有一组活动，每个活动举办时间为(区间)[Si, Fi]，选取最少的教室(资源)能够满足所有活动如期举行。<br>简略证明： 显然最少的教室至少为最大的区间的重叠层数d。由d的定义可以证明，按照左端点排序后依次分配每个区间给d个资源，每个区间都能被分配到一个其所在区间还没被占用的资源。  </p>
-<blockquote>
-<p>算法：（平衡树实现）  </p>
-<ol>
-<li>按左端点排序，利用前缀和计算d(左端点+1，右端点-1)。每个区间在分配时只需找到可以放置的资源即可直接放置。  </li>
-<li>按右端点排序，通过逆向来计算d，正向分配区间时，每次找出可以放置的资源中最大右端点的资源进行放置。</li>
-</ol>
-</blockquote>
-<h5 id="有最终期限的区间调度问题">有最终期限的区间调度问题</h5><p>定义： 某人（资源）有一组任务（区间），每个任务有各自固定的花费时间和最终期限。若任务完成时间超出最终期限，超出部分记为延迟时间，求最少延迟时间。<br>贪心直觉： 每个任务都在最终期限时刚好完成，其效果最好，因为能最大限度不阻挡其他任务的完成，只需再满足任务之间不重叠即可。可以证明这是正确的。  </p>
-<blockquote>
-<p>算法： 将每个任务按照最终期限大小依次排序，中间不能有空区间。</p>
-</blockquote>
-<p>拓展： 找出最多符合最终期限的区间并且个数相同的情况下取完成这些任务的最快方案。（dp）</p>
-<h5 id="最小区间覆盖问题">最小区间覆盖问题</h5><p>定义： 一系列的区间，选择最少的区间覆盖指定线段[s,t]</p>
-<blockquote>
-<p>算法： 按区间左端点排序后，每次取与前一区间有交集并且右端点最大的区间。</p>
-</blockquote>
-<h5 id="区间与点匹配问题">区间与点匹配问题</h5><p>定义： 点在区间内则可以形成一对匹配关系。 现有一系列点和区间，最多能够形成多少对匹配关系。</p>
-<blockquote>
-<p>算法： 将点按顺序排序后，每次在剩余的区间中选择覆盖该点的并且右端点最小的区间。</p>
-</blockquote>
-<h4 id="拟阵的引入">拟阵的引入</h4><p>类似抽象代数一般，通过总结一部分贪心算法的本质点，1935年美国数学家Whitney首先提出了拟阵的概念。将这一类贪心问题抽象化成拟阵上的问题。</p>
-<p>定义：拟阵(<em>matroid</em>)是一个序偶 $M = (S, \Gamma)$    </p>
-<ol>
-<li>$S$为一个有穷集合  </li>
-<li>$\Gamma$ 为S的子集组成的一个非空族，这些子集成为S的独立子集，满足若 $B \in \Gamma$ 且 $A \subseteq B$，则有$A \in \Gamma$。 这个性质称为遗传性。  </li>
-<li>若$A \in \Gamma, B \in \Gamma$，且$|A| &lt; |B|$，则$\exists x \in B-A$，使得$A \cup {x} \in \Gamma$。 这个性质称为交换性。</li>
-</ol>
-<p>推导出来的性质：</p>
-<ol>
-<li>若$A \in \Gamma$，则A的所有子集均属于$\Gamma$。（遗传性的等价条件）  </li>
-<li>若$A \in \Gamma, B \in \Gamma$，且$|A| &lt; |B|$，则$\exists S \subseteq B-A$，使得$|A \cup S| = |B|$，并且再由性质2得到，$ \forall T \subseteq S, T \in \Gamma $。</li>
-</ol>
-<p>参考文献：  </p>
-<ol>
-<li>《<em>算法导论</em>》  </li>
-<li><em>浅谈信息学竞赛中的区间问题 ——周小博</em>  </li>
-<li></li>
-</ol>
-<hr>
-<p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">署名-非商业性使用-禁止演绎 | Creative Commons BY-NC-ND 3.0</a><br>文章链接：<a href="http://wsnpyo.github.io/" target="_blank" rel="external">http://wsnpyo.github.io/</a></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/算法导论/"> #算法导论 </a>
-          
-            <a href="/tags/贪心/"> #贪心 </a>
-          
-            <a href="/tags/阅读总结/"> #阅读总结 </a>
-          
+          </div>
         </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </div>
   </div>
 
 
+
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/07/NP-introduction/">
-                NP问题 —— 愁上心头
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-06
-        </span>
-
+      <div class="comments" id="comments">
         
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/算法/">算法</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/07/NP-introduction/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/07/NP-introduction/"></span>
-            </a>
-          </span>
-          
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
         
       </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>此文自阅读《<em>Intoduction to Algorithm</em>》总结 or 所思所获。</p>
-<h4 id="引言">引言</h4><p>NP问题大家应该有所耳闻，都说是非多项式时间内可以解决的问题。在这里，笔者仅以多次翻阅《算法导论》的理解来用尽量通俗的语言来描述这一美妙至极的问题。</p>
-<h4 id="为甚么要研究NP问题?">为甚么要研究NP问题?</h4><p>研究NP问题从算法复杂度方面给了我们对于<em>计算机所能解决的问题</em>直观的认识。一般来说，计算机能解决的复杂的实际问题也是我们对于量级的问题的极限了。<br>故如果能够窥探一隅，也是收益颇丰的。<br>实际的角度来说，对于一个问题，作为一介平凡百姓的角度来说，如果被证明是<em>NPC</em>问题(暂且把它当作人类还没有方法解决的问题)，那便至少不必大费宝贵的时间于其中。<br>哲学的角度来说，其中的美妙之处更是难以言尽…人类的极限是什么呢？</p>
-<h4 id="什么是P/NP问题?">什么是P/NP问题?</h4><p>首先要引入对于两类问题的归类:</p>
-<blockquote>
-<ul>
-<li>判定问题（<em>decision problem</em>）: 问题的解答仅为是与否的一类问题</li>
-<li>最优化问题（<em>optimization problem</em>）: 求解问题最优解的一类问题</li>
-</ul>
-</blockquote>
-<p>接下来我们将主体说明这几类问题，称为P问题，NP问题与NPC问题。</p>
-<p>准确的说，</p>
-<blockquote>
-<ul>
-<li>P问题（<em>polynomial time</em>）：在多项式时间内可以求解的判定问题</li>
-<li>NP问题（<em>nondeterministic polynomial time</em>）：在多项式时间内可以判断（验证）一个解是否成立的判定问题</li>
-<li>NPC问题（<em>NP完全问题</em>）：NP类问题中最为难解的问题</li>
-</ul>
-</blockquote>
-<p>这里需要说明的几点：</p>
-<ul>
-<li>最优化问题往往是有趣的问题，而一般来说，判定问题是最优化问题的基础，为什么这么说？因为如果解决了最优化问题，判定问题自然能够轻松解决。（这里说的仅是判定最优解的一类问题，而不是要求求出比如求解路径一类的问题）</li>
-<li>NPC问题与NP问题与区分：NP问题并不是都是难解问题，至少显然P $\subseteq$ NP, 因为显然多项式内能够求解的问题，自然能够判断。更为本质的区别，之后会提及。 </li>
-<li>关于NP-hard问题：应该说是比NPC问题更难的问题，未必在多项式时间内可以验证一个解的问题，故NP-hard $\not \subseteq$ NP。</li>
-</ul>
-<h4 id="如何研究NP问题">如何研究NP问题</h4><p>《算法导论》上利用<strong>归约</strong>方法来判定一个问题是否属于NPC问题。</p>
-<p><strong>归约</strong>：问题A的任意实例问题能够在多项式时间内转换为问题B的某个实例。并且两者是“等价”，即问题B的对应实例的解可以转化为问题A的对应实例的解。</p>
-<p>NP完全问题正式定义是，若任何NP问题均能够归约于某类问题，这类问题被称为NPC问题。因此定义前提下，NP完全问题是NP问题中最难的一类问题。</p>
-<p>而证明一个问题是NPC问题的方式，证明存在某个NPC问题能够归约于该问题。</p>
-<p>附：P/NP问题的研究历史算来不长，在20世纪60年代才由一些计算机科学家提出，而NP完全问题的概念更是在1971年才由科学家Cook提出，并给出了公式可满足性问题和3-CNF可满足性问题的第一个NP完全性证明。此后有越来越多问题被证明是NP完全的，极大促进了对于此类问题的研究发展。而对于NP问题是否能在多项式时间内判断还是一个未解之谜，也使得<em>P=NP?</em>成为了“千禧年”问题之一。</p>
-<h4 id="多项式时间的严格定义">多项式时间的严格定义</h4><p>这一块是我读不懂的一块，主要涉及到形式语言和自动机原理，还有编码问题，其实仔细想想也能想到其缘由。</p>
-<p>计算机能够表达的语言是建立编码之上的，而你描述的算法的运行是在计算机基础之上的，如何才能够确切的表示计算机多项式时间需要对这一块有严格的说明。</p>
-<p>还望高人指点。（注：以后回顾时希望能够补上吧。）</p>
-<h4 id="几个NPC问题">几个NPC问题</h4><ul>
-<li><p><strong>公式可满足性问题</strong><br><strong>问题定义</strong>: 给定一个布尔公式，判定是否是可满足的。<br><strong>CLRS说明</strong>: 大致证明意思应该是计算机电路即可以表示为布尔公式，而NP问题能够在计算机上多项式时间内验证，即可转换为对应的可满足性。</p>
-</li>
-<li><p><strong>3-CNF可满足性问题</strong><br><strong>问题定义</strong>: 给定的布尔公式是3-合取范式的形式，判定是否可满足:<br>$$(x_1 \lor \neg x_2 \lor \neg x_3) \land (x_3 \lor x_4 \lor \neg x_5)$$<br>如上式<br><strong>CLRS说明</strong>: 可以证明任意布尔公式可以在多项式时间内转化为3-合取范式形式，通过变量代换可以得到。<br>具体的，显然，所有布尔公式都可以逐步用两两文字一一计算得到, 也就是能够形成一个二叉树的结构，左右儿子节点通过固定运算得到。 如何转化为3-合取范式(每个子句均是3个文字组成)? 很巧妙地，可以通过不断定义另一个文字替代这个文字运算后的结果。例如 $x_1 \lor x_2$，利用到$ y \leftrightarrow (x_1 \lor x_2) $， 这是一个3-合取范式，而之后用到$x_1 \lor x_2$时可以用 $y$ 代替。显然等价。<br>附：名词解释举例, 文字 (比如$x_1$) 子句 (比如$x_1 \lor \neg x_2 \lor \neg x_3$)</p>
-</li>
-<li><p><strong>团问题</strong><br>规模为k的团: 一个图中的一个规模为k的完全子图<br><strong>问题定义</strong>: 判定给定图中是否有规模为k的团 或者 求图最大团的规模<br><strong>CLRS说明</strong>: 可以证明对于任何一个3-CNF公式满足性问题可以构造为一个图。如果这个公式由k个子句组成，并且是可满足的，则对应于该图的一个团。<br><em>想想如何构造</em></p>
-</li>
-<li><p><strong>顶点覆盖问题</strong></p>
-</li>
-</ul>
-<hr>
-<p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">署名-非商业性使用-禁止演绎 | Creative Commons BY-NC-ND 3.0</a><br>博客链接：<a href="http://wsnpyo.github.io/" target="_blank" rel="external">http://wsnpyo.github.io/</a></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/NP/"> #NP </a>
-          
-            <a href="/tags/算法导论/"> #算法导论 </a>
-          
-            <a href="/tags/阅读总结/"> #阅读总结 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/06/LOTR/">
-                Lord of The Ring世界观介绍
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-05
-        </span>
-
-        
-          <span class="post-category">
-            &nbsp; | &nbsp; 分类于
-            
-              <a href="/categories/闲情雅致/">闲情雅致</a>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/06/LOTR/#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/06/LOTR/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>天地之初，万物之始。</p>
-<p>“唯一之神”——<em>一如•伊露维塔</em>(Ilúvatar)创造了众埃努。在伊露维塔的指挥下，埃努们共同合奏了大乐章，创建一亚，也就是宇宙。</p>
-<p>伊露维塔创造了一个实物，那便是阿尔达，并构造出其蓝图，允许埃努们对其进行创造。而埃努按照能力的大小分为维拉与迈雅(多作为维拉的仆人)。</p>
-<p>主神维拉都有：</p>
-<ul>
-<li><em>曼威</em>，维拉之首，众神之王，大气的主宰，其配偶是瓦尔妲</li>
-<li><em>瓦尔妲</em>，繁星之后，光之女神</li>
-<li><em>乌欧牟</em>，众水的主宰，深爱着精灵和人类</li>
-<li><em>奥力</em>，大地之神，一代能工巧匠，掌管阿尔达的物质，创造出陆地和高山，其配偶是雅凡娜  </li>
-<li><em>雅凡娜</em>，植物女神，大地之后</li>
-<li><em>欧罗米</em>，狩猎之神，坐骑是神驹纳哈尔(中土世界马类的祖先)，其配偶是威娜  </li>
-<li><em>威娜</em>，百花女神，雅凡娜的妹妹</li>
-<li><em>曼督斯</em>，冥王，掌管生死大权，其配偶是薇瑞</li>
-<li><em>薇瑞</em>，编织女神</li>
-<li><em>罗瑞安</em>，灵感之神，与曼督斯是兄弟关系，其配偶是伊丝缇</li>
-<li><em>伊丝缇</em>，医疗与休憩女神</li>
-<li><em>托卡斯</em>，战斗之神，其配偶是欧罗米的妹妹妮莎</li>
-<li><em>妮莎</em>，舞蹈女神</li>
-<li><em>妮娜</em>，悲哀女神，长期独处，与曼督斯是兄妹关系</li>
-<li>其次原来第十五位维拉由于罪恶被除名，即<em>米尔寇</em>，魔王，被称作<em>魔苟斯</em>。</li>
-</ul>
-<center><img src="/images/Valar.jpg" alt="Valar"></center>
-
-<p>力量较弱的次级神迈雅，其中比较出名的有:</p>
-<ul>
-<li><em>欧希</em>，乌欧牟的仆人，掌管中土大陆四方海域，其配偶是乌妮</li>
-<li><em>乌妮</em>，海洋之后，努曼诺尔人长期受到她的保护，她也受到如同对待维拉一般的尊敬</li>
-<li><em>美丽安</em>，服侍于威娜和伊丝缇，到中土大陆时爱上并嫁给了精灵王庭葛</li>
-<li><em>欧络因</em>，最有智慧的迈雅，即后来被人类和精灵所称的米斯兰达和甘道夫</li>
-<li><em>库路耐尔</em>，曾是奥力的仆人，即后来的萨鲁曼</li>
-<li><em>索伦</em>，米尔寇的仆人，待米尔寇消失后，取代成为黑暗之君。</li>
-</ul>
-<h4 id="精灵的诞生">精灵的诞生</h4><p>从阿尔达创立之后，众神开始创建这个世界，他们在中土的岛屿上建起了最初的乐园，立起神之灯塔，照亮了整个世界，这段时间也被称为”灯塔纪”。    </p>
-<p>不过黑暗之神<em>米尔寇</em>妒忌维拉们创造出这美丽的世界，因此很快他破坏了这个乐园，推倒了灯塔。众神不得不向西行到达现在被称为”不死之地”的阿门洲，建立起了不朽的王国维林诺(Vlinor)。在这里，大地之后<em>雅凡娜</em>创造了双圣树，从而为世界带来了新的光明。这个时代则被称为”神木纪”。    </p>
-<p>也在这期间，<em>瓦尔妲</em>为了迎接<em>伊露维塔</em>的子女——精灵，将双圣树的露珠收集起来，并洒向天空，形成了绚烂的繁星。精灵也就在这群星璀璨的中土大陆中诞生，因此他们也称为”繁星之子”(Eldar，艾尔达)。然而其中部分精灵被<em>米尔寇</em>抓走，灵魂受其折磨，堕落为半兽人(Orc)。    </p>
-<p>诸神为了保护<em>伊露维塔</em>的子女，向魔苟斯开战并顺利踏平了魔苟斯的巢穴，关押了魔苟斯，将中土从黑暗之中解放出来。众维拉邀请精灵共同去维林诺。    </p>
-<p>最初西行的精灵分为三类：</p>
-<ul>
-<li>凡雅精灵（Vanyar），他们西行后再也没有返回中土。  </li>
-<li>诺多精灵(Noldor)，其中大多数在这次西迁中到达维林诺，但后来由于费诺的呼吁其中许多精灵又重新回到中土大陆。魔戒中的凯兰崔尔女王便是诺多精灵。  <center><img src="/images/Noldor.jpg" alt="诺多精灵家族图谱"></center><br><center><strong>诺多精灵王族家谱</strong></center></li>
-<li><p>帖勒瑞精灵(Teleri)，在途中不少精灵脱队走散，最终只有一部分到达了阿门洲，多数留在了中土大陆。<br><center><img src="/images/Teleri.jpg" alt="帖勒瑞精灵家族图谱"></center><br><center><strong>帖勒瑞精灵王族家谱</strong></center><br>接下来细分有</p>
-</li>
-<li><p>灰精灵，最初是帖勒瑞精灵当中的一个分支，其国王是庭葛，庭葛(Thingol)在森林中遇到了迈雅美丽安(Melian)，俩人相遇相爱，最终找到自己的部族，并留在了中土，他们拥护庭葛为国王。这些精灵也称为”辛达精灵”(Sindar)，意喻星光照耀的精灵。魔戒中间的埃尔隆德——爱隆王就有灰精灵的血统。</p>
-</li>
-<li>南多精灵（Nandor），绿精灵的前身。特莱瑞精灵中由欧尔维带领的西迁队伍中，有位名叫莱恩威（Lanwe）的精灵拒绝西迁，带领不少精灵离去。他们喜欢水，对树木，草药，动物的知识远比其他精灵多。</li>
-<li>绿精灵(Green-Elves)，莱恩威之子代内舍（Denethor）投奔辛格尔王后，辛格尔王把他和他的族人安置在欧西利安德（Ossiriand）——七河之地。后来代内舍在战争中被半兽人所杀，族人们听了都非常害怕，再也不敢参战，小心翼翼的隐居起来，他们被叫做莱昆迪（Laiquendi）——绿精灵。</li>
-<li>木精灵(Wood-Elves)，又称西尔凡（Silvan）精灵，是绿精灵或是南多精灵的后代，远离深山居住在中洲的森林中，第三纪北方幽暗密林王国和洛丝萝林的很多精灵都是西尔凡精灵。</li>
-</ul>
-<p>更多相关精灵分类参见：  </p>
-<ul>
-<li><a href="http://baike.baidu.com/link?url=eqrHbGSPlvyleDFmejwVpBBGBOtnieRbI1PrgBEQr2jdPKD34N6OxDefE-CvJYn5gNUH7wz2tZX8bnRc1PJBmK" target="_blank" rel="external">中洲精灵</a>  </li>
-<li><a href="http://tieba.baidu.com/p/923564766" target="_blank" rel="external">魔戒中土世界各家族图谱</a></li>
-</ul>
-<h5 id="矮人的诞生">矮人的诞生</h5><p>除了精灵之外，矮人也随之苏醒了。这是由于奥力在创造世界时感到’寂寞’，私下创造了矮人，但这是僭越之举，不过伊露维塔原谅了他，规定矮人须在精灵诞生后苏醒。矮人也拥有奥力对于矿石开采，加工的热爱，同时兼有坚韧的性格，但也会固执，好战不服输。另外一个明显的特点就是对金银珠宝有着痴迷的喜爱，从《霍比特人》中就可以看出来，即使如索林(Thorin)这样领袖都难以抗拒金银珠宝的诱惑，丧失了理智。</p>
-<p>在第一纪元以前，矮人与辛达精灵接触，开始了精灵与矮人之间的接触。他们常常凭借精湛的工艺建立许多壮美的宫殿，包括为庭葛建立了千石窟宫殿明霓国斯（Menegorth）。后来还为芬罗德建立了纳国斯隆德。</p>
-<h5 id="附:第三纪元时精灵的分布">附:第三纪元时精灵的分布</h5><p>在中洲第三纪时，大部分精灵西行而去，包括曾经因为仇恨而回到中土世界的诺多精灵。<br>偌大个中土大陆在第三纪只剩下三个精灵据点:</p>
-<ul>
-<li>瑞文戴尔(林谷)，第二纪初由爱隆王建立。</li>
-<li>幽暗密林(巨野林)，原辛达精灵的一聚集地，由魔戒中帅的令人发指的精灵王子莱格拉斯的父亲——瑟兰迪尔统治。</li>
-<li>罗瑞安，据说是中土最美丽的地方，林之王国，木精灵的家园，由凯兰崔尔女王统治。 </li>
-</ul>
-<h4 id="第一纪元及之前">第一纪元及之前</h4><p>第一纪元围绕着诺多精灵所打造的’精灵宝钻’展开的。诺多精灵到达维林诺后，得到奥力的技艺熏陶之下，打造出许多伟大的作品，其中登峰造极的作品便是<em>精灵宝钻</em>，吸收了双圣树的光辉，称为圣物。它的创作者便是最富盛名的诺多精灵费诺。 </p>
-<p>诺多族领袖芬威共有三个儿子，大儿子便是费诺(Fëanor)，他技艺精湛至极，深得<em>奥力</em>真传，可惜性格自负，对于同父异母的兄弟总是充满怀疑猜忌。二儿子是芬国昐(Fingolfin)，就是贡多林的国王特刚(Turgon)的父亲，他本人也是极富盛名，为人谦逊开明。三儿子是费纳芬(Finarfin)，他的女儿就是后来的女王大人——<em>凯兰崔尔</em>。</p>
-<p>这时，魔苟斯刑满释放，然而并没有从良的他，对于维拉们创造的维林诺十分妒忌。他假装诚意地在精灵中间诋毁维拉，谣言开始蔓延。部分精灵开始讨厌维拉的统治，其中费诺便是其中之一。  </p>
-<p>随着时机成熟，魔苟斯联合大蜘蛛昂哥里安破坏了双圣树，并且盗走了精灵宝钻。</p>
-<p>费诺在此之前所积压的家族矛盾以及对维拉的不满情绪一下子激发了出来，他公开与维拉决裂，发誓追回精灵宝钻，号召了相当一批的精灵跟随他返回中土大陆，逃离维拉的统治，去追回魔苟斯的精灵宝钻。</p>
-<p>在离开维林诺的过程中，为了夺得渡海的船只，残杀帖勒瑞精灵，并且在船只不足的情况下抛弃同父异母的兄弟，以及其他族人在荒岛上，只带上亲近的手下回到中土大陆。如此举动导致费诺家族遭到了<em>曼督斯</em>的诅咒。</p>
-<p>另一边，维拉试图复活双圣树未果，不过双圣树最后留下了一颗金色的果实和银色的花朵。维拉们决定让两个迈雅驾驶两艘船飞过天际，分别形成了阿尔达世界的太阳和月亮。在中土大陆的第一缕阳光照耀下，人类就此诞生了。</p>
-<p>人类与精灵不同的是，人类在意志，外貌各方面都不及精灵，”死亡”是<em>伊露维塔</em>赐予人类。而精灵则是永生，除了被杀死，并且’死后’灵魂也是回归到曼督斯在阿门洲的殿堂，直到终结的那一天，据说那是只有回忆的地方。然而人类死后灵魂归处连维拉们也不知道，也就只有伊露维塔才知道吧！</p>
-<p>第一纪元就此开始。</p>
-<p>中土大陆精灵这一方面，由于费诺的誓言关系，维拉们并不出面。于是精灵阵营联合上了矮人，人类组成联盟，与魔苟斯阵营(包括龙，炎魔，兽人等)经历了许多大小战役，例如The War of the Jewels，The Battle of Sudden Flame，The Battle of Unnumbered Tears等等，逐渐着，魔苟斯的阵营占了上风，甚至连远离战场的<a href="http://baike.baidu.com/link?url=6e4vHWIdq5Azq7UpRocToSwq4Rfd5o5xJ7t2pqsk7YYTdoAvwbrkmXjgP-UwIS2gFOu3v58jm_O_sOiQKZ2EUq" target="_blank" rel="external">贡多林</a>(Gondolin)也由于家族矛盾关系，被魔苟斯趁机攻破。</p>
-<p>就在中土世界精灵，人类，矮人联盟面临彻底颠覆的时刻，传奇半精灵<a href="http://baike.baidu.com/link?url=bWi3-c96QaMwi0443WVR134gCTm-wP1rCUyOQk4b8ZO-hTx5lM_pqw5Hmc_RwscYAha3mlo007TRrq7_Se92h_" target="_blank" rel="external"><em>埃兰迪尔</em></a>与半精灵爱尔温毅然驾着船，带着精灵宝钻，在没有神指引的情况下，冒着生命危险前往维林诺。（ps. <em>埃兰迪尔</em>所驾驶的船是可以飞行的，还有他绑着精灵宝钻，因此成为了夜空中最明亮的形成，这也就是魔戒中，精灵女王<em>凯兰崔尔</em>送给<em>佛罗多·巴金斯</em>的瓶子中的星辰之光来源）最终埃兰迪尔成功到达了维林诺，为诺多精灵恳求维拉的原谅，请维拉们拯救危急的中土世界，最后维拉们决定派出援军，发动了怒火之战(the War of the Wrath)，最终打败了魔苟斯，魔苟斯被永远囚禁并驱逐。魔苟斯从此也消失于中土世界，但其手下索伦却逃出此劫。</p>
-<p>在这之间还发生了许多精灵，人类由于精灵宝钻发生的无数的纠葛。还有许多很著名的故事，比如人类<em>贝伦(Beren)</em>和半精灵半神的<em>露西安(Lúthien)</em>之间的爱情故事。他们用计从魔苟斯手中夺回一颗精灵宝钻，这应该就是<em>埃兰迪尔</em>所佩戴的精灵宝钻。(ps. 托尔金老先生与他的妻子去世后葬在一起，墓碑前所记下的名字就是<em>贝伦</em>与<em>露西安</em>，其实这段爱情故事就是以他们为原型)</p>
-<h4 id="第二纪元">第二纪元</h4><h4 id="第三纪元">第三纪元</h4><ol>
-<li>精灵愿意走，精灵不死不老，但世界会“衰老”，精灵会因此感到越来越疲乏，而因为他们不朽的生命，很多美好的事物以及好友故交都会先他们逝去，他们会悲伤，而悲伤能杀死精灵（也就是身体不老心会老）<br>大家知道莱格拉斯在精灵世系中并不算年老（其祖父是明虹国斯的幸存者，战死于最后联盟战役），但即便如此莱格拉斯殿下在《魔戒》中多次表示“感觉自己变年轻了”，“和你们这些年轻人（指护戒远征队）旅行让我觉得变年轻了”“树人，这些远古的生物依然存在让我感觉又回到年轻时”。。。小莱在第三纪都已经感觉自己老了。。。更别说像造船者齐而丹这样的首生精灵以及盖夫人这样的双树纪精灵了（盖夫人和爱隆之前一直依靠精灵三戒抵御时间的流逝保护他们的领域，魔戒圣战结束精灵三戒也就失去力量，这种能力消失）<br>精灵的希望之地乃是西方蒙福之地，那里是不死之地，维拉的国度，精灵在本质上更接近于维拉与迈亚这些不朽者</li>
-</ol>
-<ol>
-<li>精灵被允许走，简而言之就是两次邀请：<br>第一次，邀请在苏醒之后众维拉击败魔苟斯并将其囚禁，向所有精灵发出邀请，让他们迁往阿门洲居住<br>第二次，愤怒之战之后，维拉、迈亚、西方精灵、中土精灵、矮人、伊甸人联军踏平安格班，将魔苟斯驱逐出现实世界，然后维拉再次向所有的精灵发出邀请，迁往阿门洲<br>邀请永远有效。。。</li>
-</ol>
-<ol>
-<li>精灵有能力走，自西方皇族黄金大帝法拉松被索隆蛊惑反叛诸神，造物主沉没星岛、活埋法拉松军队、将世界变成了球。。。中土一切生物除了精灵都永远无法离开中土前往阿门洲，只有精灵可以以笔直航线到达阿门洲，护戒者中，比尔博、佛罗多和爱隆和盖夫人离开时，造船者齐尔丹只是将船交给了爱隆，自己并未上船，因为他在等山姆，第四纪60年山姆前往灰港像出海寻找主人，而在那迎接他的正是经过上万年等待终于即将完成使命的齐尔丹，作为一个精灵都等到长出长胡子了。。。可见其苍老。。。<br>金雳是唯一一个踏上阿门洲的矮人，但金雳不曾坐齐尔丹的船，而是乘坐老友来格拉斯自己造的船，来格拉斯是辛达精灵而非高等精灵，所以不管是高等精灵、灰精灵还是乡下精灵（西尔凡）只要愿意都有能力离开中土。</li>
-</ol>
-<h4 id="结尾">结尾</h4><hr>
-<h4 id="关于巫师">关于巫师</h4><p>巫师是在第三纪元出现在中土世界中的。追其根源，虽然维拉将魔苟斯这个黑暗之君铲除，但是中土世界中依然有他的爪牙迈雅，其中最为可怕且黑暗的就是众所周知的’索伦’。所以维拉派上5位巫师去中土世界平衡一下。其实一方面维拉懒得动手，另一方面派了五位小迈雅前去中土世界，足以证明索伦的存在价值了。不过据托尔金《未完成的故事》中所讲到，巫师是受到维拉对其的一种力量的镣铐，因为维拉不再希望使用蛮力来改变，因此希望这些迈雅使者通过建议和劝服，让人类和精灵团结起来消灭索伦。</p>
-<p>这五位巫师有名有姓的是灰袍<em>甘道夫</em>，白袍<em>萨鲁曼</em>，和褐袍<em>瑞达加斯特</em>，另外两位就不知跑哪去玩儿了。因为来到中土世界他们的记忆会消失大半，可能把自己的使命都忘记了，其次能力也受到限制，只有在危急情况下才能放的招。这也就是甘道夫不能随随便便呼唤’巨鹰’来帮忙弗罗多去末日火山的原因了。</p>
-<p>当然这些巫师间也是有地位高低的，一般穿的衣服颜色越浅等级越高。所以萨鲁曼一直以白富帅现身，也确实地位较高。其次甘道夫也是比较高等级的，在迈雅当中也被认为是’最具智慧的迈雅’，他的本名是’欧络因’，被人类称为’甘道夫’或’米斯兰达’。在指环王2与炎魔战斗中成功获取大把经验直接升级成白袍巫师(应该是获得<em>伊露维塔</em>的奖励)。其次褐袍巫师瑞达加斯特地位最低，性格怪癖，但也在霍比特人算露了一回面。  </p>
-<p>另外值得一提的是，在精灵领袖与巫师们组成<em>圣白议会</em>(<em>White Council</em>)时，虽然凯兰崔尔女王希望甘道夫成为议会会长，不过甘道夫拒绝了，这才让萨鲁曼成为议会会长。当然最后萨鲁曼背叛后，最后还是由甘道夫成为会长。</p>
-<hr>
-<p>以上，便是笔者在网上由各种资料整合的关于魔戒大致的世界观，出处甚多不一一指明，在此一一道谢(●’◡’●)。<br>最后以魔戒电影开头一句话表示对中土世界的致敬,</p>
-<p><em>History became legend, and legend became myth.</em></p>
-<center><img src="/images/theHobbitPost.jpg" alt="the Hobbit"></center><br><center><strong>the Hobbit</strong></center>
-
-
-<hr>
-<p>版权声明：<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank" rel="external">署名-非商业性使用-禁止演绎 | Creative Commons BY-NC-ND 3.0</a><br>文章链接：<a href="http://wsnpyo.github.io/" target="_blank" rel="external">http://wsnpyo.github.io/</a></p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Legend/"> #Legend </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
     
   </div>
 
-  
 
         </div>
       </div>
@@ -839,6 +410,15 @@
   <div id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <div class="site-overview">
@@ -896,6 +476,17 @@
 
       </div>
 
+      
+        <div class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </div>
       
 
     </div>
@@ -1127,6 +718,328 @@
 
 
   
+  
+<script type="text/javascript" id="bootstrap.scrollspy.custom">
+  /* ========================================================================
+  * Bootstrap: scrollspy.js v3.3.2
+  * http://getbootstrap.com/javascript/#scrollspy
+  * ========================================================================
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * ======================================================================== */
+
+  /**
+   * Custom by iissnan
+   *
+   * - Add a `clear.bs.scrollspy` event.
+   * - Esacpe targets selector.
+   */
+
+
+  +function ($) {
+    'use strict';
+
+    // SCROLLSPY CLASS DEFINITION
+    // ==========================
+
+    function ScrollSpy(element, options) {
+      this.$body          = $(document.body)
+      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
+      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+      this.selector       = (this.options.target || '') + ' .nav li > a'
+      this.offsets        = []
+      this.targets        = []
+      this.activeTarget   = null
+      this.scrollHeight   = 0
+
+      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
+      this.refresh()
+      this.process()
+    }
+
+    ScrollSpy.VERSION  = '3.3.2'
+
+    ScrollSpy.DEFAULTS = {
+      offset: 10
+    }
+
+    ScrollSpy.prototype.getScrollHeight = function () {
+      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
+    }
+
+    ScrollSpy.prototype.refresh = function () {
+      var that          = this
+      var offsetMethod  = 'offset'
+      var offsetBase    = 0
+
+      this.offsets      = []
+      this.targets      = []
+      this.scrollHeight = this.getScrollHeight()
+
+      if (!$.isWindow(this.$scrollElement[0])) {
+        offsetMethod = 'position'
+        offsetBase   = this.$scrollElement.scrollTop()
+      }
+
+      this.$body
+        .find(this.selector)
+        .map(function () {
+          var $el   = $(this)
+          var href  = $el.data('target') || $el.attr('href')
+          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
+
+          return ($href
+            && $href.length
+            && $href.is(':visible')
+            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
+        })
+        .sort(function (a, b) { return a[0] - b[0] })
+        .each(function () {
+          that.offsets.push(this[0])
+          that.targets.push(this[1])
+        })
+
+
+    }
+
+    ScrollSpy.prototype.process = function () {
+      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
+      var scrollHeight = this.getScrollHeight()
+      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
+      var offsets      = this.offsets
+      var targets      = this.targets
+      var activeTarget = this.activeTarget
+      var i
+
+      if (this.scrollHeight != scrollHeight) {
+        this.refresh()
+      }
+
+      if (scrollTop >= maxScroll) {
+        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
+      }
+
+      if (activeTarget && scrollTop < offsets[0]) {
+        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
+        this.activeTarget = null
+        return this.clear()
+      }
+
+      for (i = offsets.length; i--;) {
+        activeTarget != targets[i]
+          && scrollTop >= offsets[i]
+          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
+          && this.activate(targets[i])
+      }
+    }
+
+    ScrollSpy.prototype.activate = function (target) {
+      this.activeTarget = target
+
+      this.clear()
+
+      var selector = this.selector +
+        '[data-target="' + target + '"],' +
+        this.selector + '[href="' + target + '"]'
+
+      var active = $(selector)
+        .parents('li')
+        .addClass('active')
+
+      if (active.parent('.dropdown-menu').length) {
+        active = active
+          .closest('li.dropdown')
+          .addClass('active')
+      }
+
+      active.trigger('activate.bs.scrollspy')
+    }
+
+    ScrollSpy.prototype.clear = function () {
+      $(this.selector)
+        .parentsUntil(this.options.target, '.active')
+        .removeClass('active')
+    }
+
+
+    // SCROLLSPY PLUGIN DEFINITION
+    // ===========================
+
+    function Plugin(option) {
+      return this.each(function () {
+        var $this   = $(this)
+        var data    = $this.data('bs.scrollspy')
+        var options = typeof option == 'object' && option
+
+        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
+        if (typeof option == 'string') data[option]()
+      })
+    }
+
+    var old = $.fn.scrollspy
+
+    $.fn.scrollspy             = Plugin
+    $.fn.scrollspy.Constructor = ScrollSpy
+
+
+    // SCROLLSPY NO CONFLICT
+    // =====================
+
+    $.fn.scrollspy.noConflict = function () {
+      $.fn.scrollspy = old
+      return this
+    }
+
+
+    // SCROLLSPY DATA-API
+    // ==================
+
+    $(window).on('load.bs.scrollspy.data-api', function () {
+      $('[data-spy="scroll"]').each(function () {
+        var $spy = $(this)
+        Plugin.call($spy, $spy.data())
+      })
+    })
+
+  }(jQuery);
+</script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var $sidebarInner = $('.sidebar-inner');
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.didShow', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+          var self = this;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      $(indicator).velocity('stop').velocity({
+        opacity: action === 'show' ? 0.4 : 0
+      }, { duration: 100 });
+    }
+
+  });
+</script>
+
+
+  <script type="text/javascript" id="sidebar.nav">
+    $(document).ready(function () {
+      var html = $('html');
+
+      $('.sidebar-nav li').on('click', function () {
+        var item = $(this);
+        var activeTabClassName = 'sidebar-nav-active';
+        var activePanelClassName = 'sidebar-panel-active';
+        if (item.hasClass(activeTabClassName)) {
+          return;
+        }
+
+        var currentTarget = $('.' + activePanelClassName);
+        var target = $('.' + item.data('target'));
+
+        currentTarget.velocity('transition.slideUpOut', 200, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', 200)
+            .addClass(activePanelClassName);
+        });
+
+        item.siblings().removeClass(activeTabClassName);
+        item.addClass(activeTabClassName);
+      });
+
+      $('.post-toc a').on('click', function (e) {
+        e.preventDefault();
+        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        });
+      });
+
+      // Expand sidebar on post detail page by default, when post has a toc.
+      var $tocContent = $('.post-toc-content');
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
+        setTimeout(function () {
+          $('.sidebar-toggle').trigger('click');
+        }, 800);
+      }
+    });
+  </script>
+
+
+
 
   
 <script type="text/x-mathjax-config">
@@ -1163,14 +1076,14 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'prejudice';
-      var disqus_identifier = 'index.html';
-      var disqus_url = '';
+      var disqus_identifier = '2015/06/30/Thought-2015/';
+      var disqus_url = 'http://yoursite.com/2015/06/30/Thought-2015/';
 
       (function(){
         var dsq = document.createElement('script');
         dsq.type = 'text/javascript';
         dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }());
     </script>
